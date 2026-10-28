@@ -1,0 +1,9 @@
+{
+  "owner": {
+    "username": "GITHUB_USERNAME_HERE",
+    "email": "GITHUB_EMAIL_HERE"
+  },
+  "records": {
+    "CNAME": "FIREBASE_PROJECT_ID.web.app"
+  }
+}
