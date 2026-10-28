@@ -1,10 +1,9 @@
 {
   "owner": {
-    "username": "GITHUB_USERNAME_HERE",
-    "email": "GITHUB_EMAIL_HERE"
+    "username": "shackenniceguy",
+    "email": "sternmorgen015@gmail.com"
   },
   "records": {
-    "CNAME": "FIREBASE_PROJECT_ID.web.app"
+    "CNAME": "shackenniceguy.github.io"
   }
 }
-
