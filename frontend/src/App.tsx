@@ -4,6 +4,7 @@ import { WorkspaceProvider, useWorkspace } from './context/WorkspaceContext';
 import { Navbar } from './components/Navbar';
 import { Sidebar, ActiveTab } from './components/Sidebar';
 import { TerminalLog } from './components/TerminalLog';
+import { ErrorBoundary } from './components/ErrorBoundary';
 
 import { DomainReconView } from './views/DomainReconView';
 import { SocmintView } from './views/SocmintView';
@@ -42,13 +43,14 @@ const MainLayout: React.FC = () => {
 
 export const App: React.FC = () => {
   return (
-    <LanguageProvider>
-      <WorkspaceProvider>
-        <MainLayout />
-      </WorkspaceProvider>
-    </LanguageProvider>
+    <ErrorBoundary>
+      <LanguageProvider>
+        <WorkspaceProvider>
+          <MainLayout />
+        </WorkspaceProvider>
+      </LanguageProvider>
+    </ErrorBoundary>
   );
 };
 
 export default App;
-

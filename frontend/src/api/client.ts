@@ -10,17 +10,66 @@ import {
   ReportData
 } from '../types';
 
+export const getApiBaseUrl = (): string => {
+  const custom = localStorage.getItem('aegis_api_url');
+  if (custom) return custom.replace(/\/+$/, '');
+  // Default to relative /api/v1 (works with local proxy or reverse proxy)
+  return '/api/v1';
+};
+
+export const setApiBaseUrl = (url: string | null) => {
+  if (url) {
+    localStorage.setItem('aegis_api_url', url.replace(/\/+$/, ''));
+  } else {
+    localStorage.removeItem('aegis_api_url');
+  }
+};
+
 const api = axios.create({
-  baseURL: '/api/v1',
   headers: {
     'Content-Type': 'application/json'
   }
 });
 
+// Dynamically attach baseURL before every request
+api.interceptors.request.use((config) => {
+  config.baseURL = getApiBaseUrl();
+  return config;
+});
+
+// Guard against static SPA hosting fallback serving HTML when JSON was expected
+api.interceptors.response.use(
+  (response) => {
+    if (
+      typeof response.data === 'string' &&
+      (response.data.trim().startsWith('<!DOCTYPE') ||
+        response.data.trim().startsWith('<!doctype') ||
+        response.data.trim().startsWith('<html'))
+    ) {
+      throw new Error(
+        'Бэкенд недоступен по текущему адресу (сервер вернул HTML вместо API JSON). Укажите адрес бэкенда в настройках.'
+      );
+    }
+    return response;
+  },
+  (error) => {
+    return Promise.reject(error);
+  }
+);
+
 export const apiService = {
+  // Check backend health
+  checkHealth: async (): Promise<{ status: string; version?: string }> => {
+    const res = await api.get('/workspaces');
+    return { status: Array.isArray(res.data) ? 'ok' : 'error' };
+  },
+
   // Workspaces
   getWorkspaces: async (): Promise<Workspace[]> => {
     const res = await api.get('/workspaces');
+    if (!Array.isArray(res.data)) {
+      throw new Error('Invalid workspace data format');
+    }
     return res.data;
   },
   createWorkspace: async (data: { name: string; target: string; description?: string }): Promise<Workspace> => {
@@ -79,7 +128,11 @@ export const apiService = {
     const res = await api.post('/archive/dorks', { target });
     return res.data;
   },
-  queryWayback: async (domain: string, limit: number = 50, mimeFilter?: string): Promise<{ domain: string; total_snapshots: number; snapshots: WaybackSnapshot[] }> => {
+  queryWayback: async (
+    domain: string,
+    limit: number = 50,
+    mimeFilter?: string
+  ): Promise<{ domain: string; total_snapshots: number; snapshots: WaybackSnapshot[] }> => {
     const res = await api.post('/archive/wayback', {
       domain,
       limit,
@@ -93,7 +146,10 @@ export const apiService = {
     const res = await api.get(`/graph/${workspaceId}`);
     return res.data;
   },
-  addCustomNode: async (workspaceId: string, node: { type: string; value: string; label: string; risk_level?: string }): Promise<void> => {
+  addCustomNode: async (
+    workspaceId: string,
+    node: { type: string; value: string; label: string; risk_level?: string }
+  ): Promise<void> => {
     await api.post(`/graph/${workspaceId}/node`, node);
   },
   deleteNode: async (workspaceId: string, nodeId: string): Promise<void> => {
@@ -113,4 +169,3 @@ export const apiService = {
     return res.data;
   }
 };
-
