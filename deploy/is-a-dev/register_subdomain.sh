@@ -65,3 +65,4 @@ gh pr create \
 echo "[✓] Subdomain registration PR successfully submitted!"
 echo "[*] Track your PR at: https://github.com/is-a-dev/register/pulls"
 rm -rf "$WORK_DIR"
+

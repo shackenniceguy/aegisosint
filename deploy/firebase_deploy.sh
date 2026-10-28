@@ -37,3 +37,4 @@ firebase deploy --only hosting
 echo ""
 echo "[✓] Deployment complete!"
 echo "[*] Live Application URL: https://${PROJECT_ID}.web.app"
+

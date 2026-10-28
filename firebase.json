@@ -1,5 +1,6 @@
 {
   "hosting": {
+    "site": "aegisosint",
     "public": "backend/app/static",
     "ignore": [
       "firebase.json",
@@ -33,3 +34,4 @@
     ]
   }
 }
+
