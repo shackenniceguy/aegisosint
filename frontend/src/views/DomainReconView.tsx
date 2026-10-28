@@ -28,12 +28,14 @@ export const DomainReconView: React.FC = () => {
 
   const handleScan = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!domain) return;
+    const cleanDomain = domain.trim().replace(/^https?:\/\//i, '').replace(/^www\./i, '').replace(/\/.*$/, '').toLowerCase();
+    if (!cleanDomain) return;
+    setDomain(cleanDomain);
     setLoading(true);
-    addLog('DomainRecon', 'STARTED', `Starting passive reconnaissance on ${domain}...`);
+    addLog('DomainRecon', 'STARTED', `Starting passive reconnaissance on ${cleanDomain}...`);
 
     try {
-      const result = await apiService.scanDomain(domain, activeWorkspace?.id);
+      const result = await apiService.scanDomain(cleanDomain, activeWorkspace?.id);
       setData(result);
       addLog('DomainRecon', 'SUCCESS', `Discovered ${result.subdomains.length} subdomains and evaluated posture (${result.security_posture_score}/100)`);
     } catch (err: any) {

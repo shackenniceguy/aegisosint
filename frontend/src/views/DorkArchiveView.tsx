@@ -27,12 +27,14 @@ export const DorkArchiveView: React.FC = () => {
 
   const handleGenerateDorks = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!target) return;
+    const cleanTgt = target.trim().replace(/^https?:\/\//i, '').replace(/^www\./i, '').replace(/\/.*$/, '').toLowerCase();
+    if (!cleanTgt) return;
+    setTarget(cleanTgt);
     setLoading(true);
-    addLog('Dorks', 'STARTED', `Generating visual Google/Yandex/GitHub/Shodan dorks for '${target}'...`);
+    addLog('Dorks', 'STARTED', `Generating visual Google/Yandex/GitHub/Shodan dorks for '${cleanTgt}'...`);
 
     try {
-      const res = await apiService.getDorks(target);
+      const res = await apiService.getDorks(cleanTgt);
       setDorks(res);
       addLog('Dorks', 'SUCCESS', `Constructed ${res.length} targeted intelligence queries.`);
     } catch (err: any) {
@@ -44,9 +46,11 @@ export const DorkArchiveView: React.FC = () => {
 
   const handleQueryWayback = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!target) return;
+    const cleanTgt = target.trim().replace(/^https?:\/\//i, '').replace(/^www\./i, '').replace(/\/.*$/, '').toLowerCase();
+    if (!cleanTgt) return;
+    setTarget(cleanTgt);
     setLoading(true);
-    addLog('Wayback', 'STARTED', `Querying Internet Archive CDX API for *.${target}/*...`);
+    addLog('Wayback', 'STARTED', `Querying Internet Archive CDX API for *.${cleanTgt}/*...`);
 
     try {
       const res = await apiService.queryWayback(target, snapshotLimit, mimeFilter);

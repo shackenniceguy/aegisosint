@@ -26,12 +26,14 @@ export const SocmintView: React.FC = () => {
 
   const handleScan = async (e: React.FormEvent) => {
     e.preventDefault();
-    if (!username) return;
+    const cleanUser = username.trim().replace(/^@/, '');
+    if (!cleanUser) return;
+    setUsername(cleanUser);
     setLoading(true);
-    addLog('SOCMINT', 'STARTED', `Initiating footprint scan across 30+ platforms for @${username}...`);
+    addLog('SOCMINT', 'STARTED', `Initiating footprint scan across 30+ platforms for @${cleanUser}...`);
 
     try {
-      const res = await apiService.scanUsername(username, activeWorkspace?.id);
+      const res = await apiService.scanUsername(cleanUser, activeWorkspace?.id);
       setData(res);
       addLog('SOCMINT', 'SUCCESS', `Found ${res.found_count} matching profiles out of ${res.total_checked} platforms.`);
     } catch (err: any) {
