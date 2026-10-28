@@ -1,0 +1,114 @@
+{
+  "app_name": "AegisOSINT",
+  "app_tagline": "Avtonom raqamli iz va tashqi infratuzilma razvedkasi platformasi",
+  "nav": {
+    "dashboard": "Ish maydonlari",
+    "domain_recon": "Domen razvedkasi",
+    "socmint": "Profil va SOCMINT",
+    "forensics": "Metadata forensika",
+    "dorks": "Dorklar va Arxiv",
+    "graph": "Aloqalar grafi (Maltego)",
+    "reports": "Audit hisobotlari"
+  },
+  "workspace": {
+    "active": "Faol tergov maydoni",
+    "none_selected": "Maydon tanlanmagan",
+    "create_new": "Yangi tergov maydoni",
+    "name": "Maydon nomi",
+    "target": "Asosiy nishon (domen/user)",
+    "description": "Tergov maqsadi va qaydlar",
+    "create_btn": "Tergovni boshlash",
+    "delete": "O'chirish",
+    "entities_count": "Obyektlar",
+    "select_prompt": "Artefaktlarni korrelyatsiya qilish va graf tuzish uchun ish maydonini tanlang."
+  },
+  "domain": {
+    "title": "Domen infratuzilmasi razvedkasi",
+    "subtitle": "Passiv DNS tahlili, Certificate Transparency (crt.sh), RDAP va veb-texnologiyalar",
+    "input_placeholder": "Nishon domenni kiriting (masalan, example.com)",
+    "scan_btn": "Infratuzilma auditini boshlash",
+    "scanning": "Tarmoq artefaktlari yig'ilmoqda...",
+    "dns_title": "DNS yozuvlari",
+    "email_sec": "Pochta xavfsizligi holati",
+    "spf_status": "SPF yozuvi",
+    "dmarc_status": "DMARC siyosati",
+    "subdomains_title": "Aniqlangan subdomenlar (CT Logs)",
+    "active_only": "Faqat faollar (IP bilan)",
+    "ip_title": "Tarmoq infratuzilmasi, ASN va Geo",
+    "tech_title": "Veb-texnologiyalar va Xavfsizlik sarlavhalari",
+    "score_label": "Xavfsizlik indeksi (Security Score)",
+    "risks_title": "Aniqlangan xavf omillari"
+  },
+  "socmint": {
+    "title": "SOCMINT va raqamli profil korrelyatsiyasi",
+    "subtitle": "Foydalanuvchi nomini 30+ mashhur platformalar bo'yicha asinxron qidirish",
+    "input_placeholder": "Foydalanuvchi nomini kiriting (masalan, alex_dev)",
+    "scan_btn": "Akkauntlarni tahlil qilish",
+    "scanning": "Xizmatlar tekshirilmoqda...",
+    "found_profiles": "Topilgan faol profillar",
+    "checked_total": "Tekshirilgan platformalar",
+    "github_intel": "Boyitilgan GitHub ma'lumotlari",
+    "open_profile": "Profilni ochish"
+  },
+  "forensics": {
+    "title": "Hujjatlar va media fayllar forensikasi",
+    "subtitle": "EXIF, GPS koordinatalari, mualliflik tarixi va metama'lumotlarni tozalash",
+    "dropzone": "Faylni bu yerga tashlang yoki tanlang",
+    "formats_supported": "JPEG, PNG, WebP, TIFF, PDF, DOCX (25 MB gacha)",
+    "analyzing": "Metama'lumotlar olinmoqda...",
+    "sanitize_btn": "Tozalash va xavfsiz faylni yuklab olish",
+    "gps_title": "GPS geolokatsiyasi (EXIF)",
+    "view_gmaps": "Google Xaritalar",
+    "view_osm": "OpenStreetMap",
+    "exif_title": "Kamera va qurilma teglari (EXIF)",
+    "doc_title": "Hujjat xususiyatlari",
+    "urls_title": "Biriktirilgan havolalar",
+    "leaks_detected": "Maxfiy ma'lumotlar sizib chiqishi aniqlandi!"
+  },
+  "dorks": {
+    "title": "Dork konstruktori va veb-arxiv",
+    "subtitle": "Maxsus qidiruv shablonlari va Wayback Machine tarixiy nusxalari",
+    "input_placeholder": "Nishon domen yoki kalit so'zni kiriting",
+    "generate_btn": "Dorklarni yaratish",
+    "archive_tab": "Wayback Machine tadqiqotchisi",
+    "dorks_tab": "Qidiruv dorklari",
+    "limit": "Nusxalar cheklovi",
+    "query_archive_btn": "Tarixiy nusxalarni qidirish",
+    "search_google": "Google qidiruvi",
+    "search_yandex": "Yandex qidiruvi",
+    "search_github": "GitHub kodi",
+    "search_shodan": "Shodan xostlari"
+  },
+  "graph": {
+    "title": "Interaktiv aloqalar grafi",
+    "subtitle": "Maltego uslubidagi vizual maydon va pivot imkoniyatlari",
+    "layout": "Joylashuv algoritmi",
+    "force_directed": "Kuch asosidagi graf (Cose)",
+    "hierarchical": "Ierarxik",
+    "circular": "Konsentrik / Doira",
+    "grid": "To'r",
+    "filter_type": "Obyekt turi filtri",
+    "all_types": "Barcha turlar",
+    "add_node": "Qo'lda obyekt qo'shish",
+    "pivot_node": "Pivot qilish",
+    "delete_node": "Obyektni o'chirish",
+    "node_type": "Obyekt turi",
+    "node_value": "Qiymati / Identifikatori",
+    "node_label": "Ko'rinadigan nomi"
+  },
+  "reports": {
+    "title": "Tergov audit hisobotlari",
+    "subtitle": "Barcha modullar bo'yicha yig'ma hisobot va xavfsizlik reytingi",
+    "generate_btn": "Hisobotni shakllantirish",
+    "format": "Hisobot formati",
+    "language": "Hisobot tili",
+    "print_pdf": "Chop etish / PDF ga saqlash",
+    "copy_markdown": "Markdown nusxalash"
+  },
+  "terminal": {
+    "title": "Jonli tergov hodisalari oqimi (Live Stream)",
+    "clear": "Tozalash",
+    "waiting": "Skaner signallari kutilmoqda..."
+  }
+}
+

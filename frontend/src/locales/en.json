@@ -1,0 +1,114 @@
+{
+  "app_name": "AegisOSINT",
+  "app_tagline": "Autonomous Digital Footprint & Attack Surface Intelligence",
+  "nav": {
+    "dashboard": "Workspaces",
+    "domain_recon": "Domain Recon",
+    "socmint": "Identity & SOCMINT",
+    "forensics": "Metadata Forensics",
+    "dorks": "Dork & Archive",
+    "graph": "Link Graph Workspace",
+    "reports": "Audit Reports"
+  },
+  "workspace": {
+    "active": "Active Workspace",
+    "none_selected": "No Workspace Selected",
+    "create_new": "New Workspace",
+    "name": "Workspace Name",
+    "target": "Primary Target",
+    "description": "Investigation Objective",
+    "create_btn": "Create Investigation",
+    "delete": "Delete",
+    "entities_count": "Entities",
+    "select_prompt": "Select an investigation workspace to correlate artifacts and graph."
+  },
+  "domain": {
+    "title": "Domain & Infrastructure Reconnaissance",
+    "subtitle": "Passive DNS enumeration, Certificate Transparency, RDAP, and Web Tech fingerprinting",
+    "input_placeholder": "Enter target domain (e.g., example.com)",
+    "scan_btn": "Execute Reconnaissance",
+    "scanning": "Running Discovery...",
+    "dns_title": "DNS Records",
+    "email_sec": "Email Security Posture",
+    "spf_status": "SPF Record",
+    "dmarc_status": "DMARC Record",
+    "subdomains_title": "Discovered Subdomains (CT Logs)",
+    "active_only": "Active Only",
+    "ip_title": "Network Infrastructure & ASN",
+    "tech_title": "Web Technology & Security Headers",
+    "score_label": "Security Posture Score",
+    "risks_title": "Identified Infrastructure Risks"
+  },
+  "socmint": {
+    "title": "SOCMINT & Username Correlation",
+    "subtitle": "Asynchronous profile presence detection across 30+ major public platforms",
+    "input_placeholder": "Enter username or handle (e.g., alex_dev)",
+    "scan_btn": "Correlate Profiles",
+    "scanning": "Scanning Platforms...",
+    "found_profiles": "Active Profiles Found",
+    "checked_total": "Total Checked",
+    "github_intel": "Enriched GitHub Identity",
+    "open_profile": "Open Profile"
+  },
+  "forensics": {
+    "title": "Document & Media Metadata Forensics",
+    "subtitle": "Analyze EXIF, GPS coordinates, author history, and sanitize files",
+    "dropzone": "Drag and drop files here, or click to browse",
+    "formats_supported": "JPEG, PNG, WebP, TIFF, PDF, DOCX (Max 25MB)",
+    "analyzing": "Extracting Metadata...",
+    "sanitize_btn": "Sanitize & Strip Metadata",
+    "gps_title": "Embedded GPS Geolocation",
+    "view_gmaps": "Google Maps",
+    "view_osm": "OpenStreetMap",
+    "exif_title": "Camera & Image EXIF Tags",
+    "doc_title": "Document Attributes",
+    "urls_title": "Embedded Hyperlinks",
+    "leaks_detected": "Privacy & Security Leaks Detected!"
+  },
+  "dorks": {
+    "title": "Advanced Dork Builder & Archive Explorer",
+    "subtitle": "Targeted search patterns and Wayback Machine historical snapshot discovery",
+    "input_placeholder": "Enter target domain or keyword",
+    "generate_btn": "Build Dorks",
+    "archive_tab": "Wayback Machine Explorer",
+    "dorks_tab": "Search Dork Queries",
+    "limit": "Snapshot Limit",
+    "query_archive_btn": "Search Historical Snapshots",
+    "search_google": "Google Search",
+    "search_yandex": "Yandex Search",
+    "search_github": "GitHub Code",
+    "search_shodan": "Shodan Host"
+  },
+  "graph": {
+    "title": "Interactive Link-Analysis Graph",
+    "subtitle": "Maltego-style visual canvas for relational artifact mapping and pivoting",
+    "layout": "Layout Engine",
+    "force_directed": "Force-Directed (Cose)",
+    "hierarchical": "Hierarchical",
+    "circular": "Concentric / Circle",
+    "grid": "Grid",
+    "filter_type": "Filter Entity Type",
+    "all_types": "All Entities",
+    "add_node": "Add Custom Node",
+    "pivot_node": "Pivot on Entity",
+    "delete_node": "Delete Node",
+    "node_type": "Entity Type",
+    "node_value": "Entity Value / Identifier",
+    "node_label": "Display Label"
+  },
+  "reports": {
+    "title": "Executive Investigation Reports",
+    "subtitle": "Compile multi-module intelligence and security posture scoring",
+    "generate_btn": "Generate Audit Report",
+    "format": "Report Format",
+    "language": "Target Language",
+    "print_pdf": "Print / Export as PDF",
+    "copy_markdown": "Copy Markdown"
+  },
+  "terminal": {
+    "title": "Live Real-Time Investigation Stream",
+    "clear": "Clear",
+    "waiting": "Awaiting scanner task signals..."
+  }
+}
+
